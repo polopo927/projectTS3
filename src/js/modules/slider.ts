@@ -67,8 +67,9 @@ export class Slider {
 				this.plusSlides(1)
 			})
 
-			if (btn.parentNode && btn.parentNode instanceof HTMLElement)
-				btn.parentNode?.previousElementSibling?.addEventListener('click', (event: Event) => {
+			const parentElement = btn.parentNode
+			if (parentElement && parentElement instanceof HTMLElement)
+				parentElement.previousElementSibling?.addEventListener('click', (event: Event) => {
 					event.preventDefault()
 					this.slideIndex = 1
 					this.showSlides(this.slideIndex)
