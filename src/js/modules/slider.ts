@@ -68,12 +68,16 @@ export class Slider {
 			})
 
 			const parentElement = btn.parentNode
-			if (parentElement && parentElement instanceof HTMLElement)
-				parentElement.previousElementSibling?.addEventListener('click', (event: Event) => {
-					event.preventDefault()
-					this.slideIndex = 1
-					this.showSlides(this.slideIndex)
-				})
+			if (parentElement && parentElement instanceof HTMLElement) {
+				const prevElement = parentElement.previousElementSibling
+				if (prevElement) {
+					prevElement.addEventListener('click', (event: Event) => {
+						event.preventDefault()
+						this.slideIndex = 1
+						this.showSlides(this.slideIndex)
+					})
+				}
+			}
 		})
 		this.showSlides(this.slideIndex)
 	}
