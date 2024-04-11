@@ -3,6 +3,7 @@ export class Slider {
 	slides: HTMLCollection | null
 	btns: NodeListOf<Element> | null
 	slideIndex: number
+	hanson: HTMLElement | null
 
 	constructor(page: string, btns: string) {
 		this.page = document.querySelector(page)
@@ -14,6 +15,7 @@ export class Slider {
 		}
 		this.btns = document.querySelectorAll(btns)
 		this.slideIndex = 1
+		this.hanson = document.querySelector('.hanson')
 	}
 
 	showSlides(n: number) {
@@ -24,6 +26,21 @@ export class Slider {
 
 			if (n < 1) {
 				this.slideIndex = this.slides.length
+			}
+
+			if (this.hanson) {
+				this.hanson.style.opacity = '0'
+				if (n === 3) {
+					this.hanson.classList.add('animated')
+					setTimeout(() => {
+						if (this.hanson) {
+							this.hanson.style.opacity = '1'
+							this.hanson.classList.add('slideInUp')
+						}
+					}, 3000)
+				} else {
+					this.hanson.classList.remove('slideInUp')
+				}
 			}
 
 			Array.from(this.slides).forEach((slide: Element) => {
@@ -44,17 +61,18 @@ export class Slider {
 	}
 
 	render() {
+
 		this.btns?.forEach(btn => {
 			btn.addEventListener('click', () => {
 				this.plusSlides(1)
 			})
 
 			if (btn.parentNode && btn.parentNode instanceof HTMLElement)
-			btn.parentNode?.previousElementSibling?.addEventListener('click', (event: Event) => {
-				event.preventDefault()
-				this.slideIndex = 1
-				this.showSlides(this.slideIndex)
-			})
+				btn.parentNode?.previousElementSibling?.addEventListener('click', (event: Event) => {
+					event.preventDefault()
+					this.slideIndex = 1
+					this.showSlides(this.slideIndex)
+				})
 		})
 		this.showSlides(this.slideIndex)
 	}
