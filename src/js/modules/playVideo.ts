@@ -1,8 +1,3 @@
-declare const YT: any
-/* declare function onPlayerReady(event: any): void
-declare function onPlayerStateChange(event: any): void */
-
-
 export class VideoPlayer {
 	btns: NodeListOf<HTMLElement>
 	overlay: HTMLElement | null
@@ -36,19 +31,12 @@ export class VideoPlayer {
 		})
 	}
 
-	createPlayer(url: string) {
+	createPlayer(videold: string) {
 		if (!this.player) {
 			this.player = new YT.Player('frame', {
 				height: '100%',
 				width: '100%',
-				videoId: `${url}`
-				/* playerVars: {
-					'playsinline': 1
-				},
-				events: {
-					'onReady': onPlayerReady,
-					'onStateChange': onPlayerStateChange
-				} */
+				videoId: videold
 			});
 		}
 		if (this.overlay) {
