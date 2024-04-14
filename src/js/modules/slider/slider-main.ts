@@ -1,21 +1,8 @@
-export class Slider {
-	page: HTMLElement | null
-	slides: HTMLCollection | null
-	btns: NodeListOf<Element> | null
-	slideIndex: number
-	hanson: HTMLElement | null
+import { Slider } from "./slider";
 
-	constructor(page: string, btns: string) {
-		this.page = document.querySelector(page)
-
-		if (this.page instanceof HTMLElement) {
-			this.slides = this.page.children
-		} else {
-			this.slides = null
-		}
-		this.btns = document.querySelectorAll(btns)
-		this.slideIndex = 1
-		this.hanson = document.querySelector('.hanson')
+export class MainSlider extends Slider {
+	constructor({page ='', btns =''}) {
+		super({page, btns})
 	}
 
 	showSlides(n: number) {
