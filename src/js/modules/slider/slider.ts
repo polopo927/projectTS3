@@ -32,9 +32,9 @@ export class Slider {
 		this.prev = prev ? document.querySelector(prev) : null;
 		this.next = next ? document.querySelector(next) : null;
 		this.hanson = document.querySelector('.hanson');
-		this.activeClass = activeClass ? activeClass : ''
-		this.animate = animate ? animate : !animate
-		this.autoplay = autoplay ? autoplay : !autoplay
+		this.activeClass = activeClass ?? ''
+		this.animate = animate ?? false
+		this.autoplay = autoplay ?? false
 		this.slideIndex = 1;
 	}
 }
