@@ -1,4 +1,4 @@
-import { MainSlider, VideoPlayer, MiniSlider, Difference } from './modules/'
+import { MainSlider, VideoPlayer, MiniSlider, showCards } from './modules/'
 
 window.addEventListener('DOMContentLoaded', () => {
 	const slider = new MainSlider({ container: '.page', btns: '.next' })
@@ -34,9 +34,12 @@ window.addEventListener('DOMContentLoaded', () => {
 	const player = new VideoPlayer('.showup .play', '.overlay')
 	player.init()
 
-	new Difference({
+	showCards( '.officerold', '.officer__card-item')
+	showCards( '.officernew', '.officer__card-item')
+
+	/* new Difference({
 		oldOfficer: '.officerold',
 		newOfficer: '.officernew',
 		cardsSelector: '.officer__card-item'
-	}).init()
+	}).init() */
 }) 

@@ -1,4 +1,4 @@
-export class Difference {
+/* export class Difference {
 	oldOfficer: HTMLElement | null
 	newOfficer: HTMLElement | null
 	oldCards: NodeListOf<Element> | null
@@ -80,4 +80,38 @@ export class Difference {
 		this.hideItems()
 		this.bindTriggers()
 	}
+} */
+
+
+export const showCards = (wrapper: string, cardsSelector: string) => {
+	const wrappers = document.querySelectorAll(wrapper)
+	
+
+	wrappers.forEach(wrapper => {
+		const cards = wrapper.querySelectorAll(cardsSelector)
+		let counter = 0
+
+		cards.forEach((card, i) => {
+
+			if (i !== cards.length - 1 && card instanceof HTMLElement) {
+				card.style.display = 'none'
+			} else {
+				card.addEventListener('click', () => {
+					if (counter < cards.length - 1 ) {
+						const nextCard = cards[counter]
+						if (nextCard instanceof HTMLElement) {
+							nextCard.style.display = 'flex'
+							counter++
+						}
+					}
+
+					if (counter === cards.length - 1 && card instanceof HTMLElement) {
+						card.style.display = 'none'
+					}
+				})
+			}
+		})
+	})
+	
+
 }
