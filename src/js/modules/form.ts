@@ -120,12 +120,10 @@ export class Forms {
 					}
 				})
 				const jsonData = JSON.stringify(jsonObject)
-				console.log(jsonData)
 
 				const url = 'https://simple-server-2ow5.onrender.com/api/data'
 				this.postData(url, jsonData)
 					.then(res => {
-						console.log(res)
 						statusMessage.textContent = this.message.success
 					})
 					.catch(() => {
