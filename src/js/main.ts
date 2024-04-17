@@ -1,4 +1,4 @@
-import { MainSlider, VideoPlayer, MiniSlider, showCards } from './modules/'
+import { MainSlider, VideoPlayer, MiniSlider, showCards, Forms } from './modules/'
 
 window.addEventListener('DOMContentLoaded', () => {
 	const slider = new MainSlider({ container: '.page', btns: '.next' })
@@ -36,6 +36,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	showCards( '.officerold', '.officer__card-item')
 	showCards( '.officernew', '.officer__card-item')
+
+	new Forms('.form').init()
 
 	/* new Difference({
 		oldOfficer: '.officerold',
