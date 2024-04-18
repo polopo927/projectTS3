@@ -5,6 +5,7 @@ export class Slider {
 	slideIndex: number
 	hanson: HTMLElement | null
 	prev: HTMLElement | null
+	prevModule: NodeListOf<Element> | null
 	next: HTMLElement | null
 	activeClass: string
 	animate: boolean
@@ -15,6 +16,7 @@ export class Slider {
 		btns,
 		next,
 		prev,
+		prevModule,
 		activeClass,
 		animate,
 		autoplay }: {
@@ -22,6 +24,7 @@ export class Slider {
 			btns?: string,
 			next?: string,
 			prev?: string,
+			prevModule?: string,
 			activeClass?: string,
 			animate?: boolean,
 			autoplay?: boolean
@@ -30,6 +33,7 @@ export class Slider {
 		this.slides = this.container ? this.container.children : null;
 		this.btns = btns ? document.querySelectorAll(btns) : null;
 		this.prev = prev ? document.querySelector(prev) : null;
+		this.prevModule = prevModule ? document.querySelectorAll(prevModule) : null
 		this.next = next ? document.querySelector(next) : null;
 		this.hanson = document.querySelector('.hanson');
 		this.activeClass = activeClass ?? ''

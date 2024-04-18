@@ -3,11 +3,13 @@ import { Slider } from "./slider";
 export class MainSlider extends Slider {
 	constructor({
 		container,
-		btns }: {
+		btns,
+		prevModule }: {
 			container: string,
-			btns: string
+			btns: string,
+			prevModule?: string
 		}) {
-		super({ container, btns })
+		super({ container, btns, prevModule })
 	}
 
 	showSlides(n: number) {
@@ -72,5 +74,11 @@ export class MainSlider extends Slider {
 			}
 		})
 		this.showSlides(this.slideIndex)
+
+		this.prevModule?.forEach(prevBtn => {
+			prevBtn.addEventListener('click', () => {
+				this.plusSlides(-1)
+			})
+		})
 	}
 }
