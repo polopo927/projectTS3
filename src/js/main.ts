@@ -34,8 +34,8 @@ window.addEventListener('DOMContentLoaded', () => {
 	})
 	feedSlider.init()
 
-	const player = new VideoPlayer('.showup .play', '.overlay')
-	player.init()
+	new VideoPlayer('.showup .play', '.overlay').init()
+	new VideoPlayer('.module__video .play', '.overlay').init()
 
 	showCards( '.officerold', '.officer__card-item')
 	showCards( '.officernew', '.officer__card-item')
